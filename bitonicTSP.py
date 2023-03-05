@@ -50,6 +50,7 @@ def shortest_bitonic_path(points):
         path_length += min(dist)
         path.append(next)
 
+    # Compute shortest path from the right most to left most only traveling right to left
     while len(path) != len(options):
         options = dp[next]
         indecies = []
@@ -70,5 +71,5 @@ def shortest_bitonic_path(points):
 path, path_length = shortest_bitonic_path(points)
 
 # Print results
-print("Shortest Bitonic Path:", path)
+print("Shortest Bitonic Path:", list(map(lambda point: points[point], path)))
 print("Length:", path_length)
