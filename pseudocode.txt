@@ -1,0 +1,10 @@
+    1. Sort the list of points by their x-coordinate.
+    2. Initialize a matrix dp with dimensions n x n, where n is the length of the sorted list of points.
+    3. For each pair of points i and j in the sorted list of points, calculate the distance between them using the distance function.
+    4. For each pair of points i and j, set dp[i][j][0] to "right" if i < j and "left" if i > j, and set dp[i][j][1] to the distance between the two points. If i == j set dp[i][j][0] to "diag" and dp[i][j][1] to 0.
+    5. Initialize a list called path with the first point in the sorted list of points (i.e., the left-most point).
+    6. Initialize a variable called path_length to 0.
+    7. Starting at the first point, move right to the next point with the smallest distance according to dp, adding each new point to the path and adding the distance between the current point and the new point to path_length. Continue until the right-most point is reached.
+    8. Starting at the right-most point, move left to the next point with the smallest distance according to dp that isn't already in the path, adding each new point to the path and adding the distance between the current point and the new point to path_length. Continue until all points have been added to the path.
+    9. Add the distance between the first and last points in the path to path_length.
+    10. Return the path (as indices into the sorted list of points) and path_length.
